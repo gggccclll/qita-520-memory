@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-label="未来记忆占位照片">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop stop-color="#f7f0e8"/>
+      <stop offset=".52" stop-color="#d9e7e4"/>
+      <stop offset="1" stop-color="#101820"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bg)"/>
+  <g opacity=".55">
+    <rect x="160" y="130" width="330" height="470" rx="6" fill="#101820" transform="rotate(-7 325 365)"/>
+    <rect x="534" y="180" width="330" height="470" rx="6" fill="#b85f6a" transform="rotate(4 699 415)"/>
+    <rect x="910" y="120" width="330" height="470" rx="6" fill="#d8b36a" transform="rotate(8 1075 355)"/>
+  </g>
+  <text x="92" y="760" fill="#101820" font-family="Georgia,serif" font-size="72" font-weight="700">More memories soon</text>
+  <text x="96" y="820" fill="#101820" font-family="Arial,sans-serif" font-size="28" opacity=".72">Add your real photos in assets/photos/</text>
+</svg>
