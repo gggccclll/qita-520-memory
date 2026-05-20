@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-label="520 情书占位照片">
+  <defs>
+    <linearGradient id="bg" x1="1" x2="0" y1="0" y2="1">
+      <stop stop-color="#0b1117"/>
+      <stop offset=".52" stop-color="#1e6b6f"/>
+      <stop offset="1" stop-color="#f7f0e8"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="24"/></filter>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bg)"/>
+  <g opacity=".45" filter="url(#blur)">
+    <circle cx="260" cy="230" r="150" fill="#d8b36a"/>
+    <circle cx="1130" cy="680" r="240" fill="#b85f6a"/>
+  </g>
+  <g fill="none" stroke="#f7f0e8" stroke-width="3" opacity=".45">
+    <path d="M160 680C320 448 516 568 700 392s360-84 540-256"/>
+    <path d="M180 720C340 512 530 620 710 450s326-90 500-250"/>
+  </g>
+  <text x="50%" y="46%" text-anchor="middle" fill="#f7f0e8" font-family="Georgia,serif" font-size="160" font-weight="700">520</text>
+  <text x="50%" y="56%" text-anchor="middle" fill="#f7f0e8" font-family="Arial,sans-serif" font-size="28" opacity=".84">Encrypted love letter</text>
+</svg>
