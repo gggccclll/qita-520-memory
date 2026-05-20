@@ -254,14 +254,27 @@ h3 {
   box-shadow: var(--shadow);
 }
 
-.photo-stage img {
+.photo-stage::before {
   position: absolute;
   inset: 0;
+  content: "";
+  background:
+    linear-gradient(rgba(11, 17, 23, 0.28), rgba(11, 17, 23, 0.28)),
+    var(--photo-bg, none) center / cover no-repeat;
+  filter: blur(26px);
+  opacity: 0.58;
+  transform: scale(1.08);
+}
+
+.photo-stage img {
+  position: absolute;
+  inset: 22px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.92;
-  transform: scale(1.01);
+  width: calc(100% - 44px);
+  height: calc(100% - 44px);
+  object-fit: contain;
+  opacity: 0.98;
+  transform: scale(1);
   transition:
     opacity 420ms ease,
     transform 680ms ease;
@@ -269,7 +282,7 @@ h3 {
 
 .photo-stage.is-switching img {
   opacity: 0;
-  transform: scale(1.04);
+  transform: scale(0.985);
 }
 
 .photo-caption {
@@ -607,5 +620,11 @@ h3 {
     bottom: 14px;
     left: 14px;
     padding: 16px;
+  }
+
+  .photo-stage img {
+    inset: 12px;
+    width: calc(100% - 24px);
+    height: calc(100% - 24px);
   }
 }
