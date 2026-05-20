@@ -38,6 +38,7 @@ function showPhoto(index, resetTimer = false) {
   window.setTimeout(() => {
     image.src = photo.src;
     image.alt = photo.alt || photo.title;
+    stage.style.setProperty("--photo-bg", `url("${photo.src}")`);
     photoDate.textContent = photo.date;
     photoTitle.textContent = photo.title;
     photoText.textContent = photo.text;
