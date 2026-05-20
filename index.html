@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101820" />
+    <title>我们的纪念馆</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="constellation" aria-hidden="true"></canvas>
+
+    <main class="memory-page">
+      <section class="hero-section" aria-label="我们的纪念首页">
+        <div class="hero-copy">
+          <p class="eyebrow">Since 2024.12.14</p>
+          <h1>把每一次心动，收藏成只属于我们的宇宙。</h1>
+          <p class="hero-note">
+            这里会慢慢装下我们的照片、纪念日、旅行和那些只有我们懂的瞬间。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#photos">看我们的照片</a>
+            <a class="secondary-link" href="gate.html">进入解密入口</a>
+          </div>
+        </div>
+
+        <div class="time-orbit" aria-label="在一起的时间">
+          <div class="orbit-ring"></div>
+          <div class="days-number" id="daysTogether">0</div>
+          <div class="days-label">天在一起</div>
+          <div class="date-label">2024.12.14 - 今天</div>
+        </div>
+      </section>
+
+      <section class="section-band" id="photos">
+        <div class="section-heading">
+          <p class="eyebrow">Memory Reel</p>
+          <h2>照片会自动轮播，也可以手动切换。</h2>
+        </div>
+
+        <div class="gallery-shell">
+          <button class="icon-button" id="prevPhoto" aria-label="上一张照片">
+            <span aria-hidden="true">‹</span>
+          </button>
+
+          <article class="photo-stage" id="photoStage">
+            <img id="currentPhoto" alt="我们的照片" />
+            <div class="photo-caption">
+              <p id="photoDate"></p>
+              <h3 id="photoTitle"></h3>
+              <p id="photoText"></p>
+            </div>
+          </article>
+
+          <button class="icon-button" id="nextPhoto" aria-label="下一张照片">
+            <span aria-hidden="true">›</span>
+          </button>
+        </div>
+
+        <div class="photo-dots" id="photoDots" aria-label="照片分页"></div>
+      </section>
+
+      <section class="timeline-section" aria-label="我们的时间线">
+        <div class="section-heading">
+          <p class="eyebrow">Timeline</p>
+          <h2>从那一天开始，时间有了新的名字。</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <time>2024.12.14</time>
+            <h3>我们在一起</h3>
+            <p>这是这个网站的起点，也是之后所有故事的坐标。</p>
+          </div>
+          <div class="timeline-item">
+            <time>2026.05.20</time>
+            <h3>第一个线上纪念馆</h3>
+            <p>把爱意藏进一道小谜题，再把答案交给她。</p>
+          </div>
+          <div class="timeline-item is-muted">
+            <time>Coming soon</time>
+            <h3>下一张照片，下一段旅程</h3>
+            <p>以后可以继续把新的照片和纪念写进这里。</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="data/photos.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
