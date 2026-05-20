@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101820" />
+    <title>一封需要解密的情书</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="gate-body">
+    <canvas id="constellation" aria-hidden="true"></canvas>
+
+    <main class="gate-page">
+      <section class="cipher-panel" aria-label="爱意解密游戏">
+        <p class="eyebrow">Encrypted Love Letter</p>
+        <h1>有一段心跳被加密了。</h1>
+        <p class="cipher-copy">
+          找到我们故事开始的那一天，用四位数字打开它。
+        </p>
+
+        <div class="clue-grid" aria-label="线索">
+          <div class="clue-card">
+            <span>01</span>
+            <p>冬天开始变得很特别。</p>
+          </div>
+          <div class="clue-card">
+            <span>02</span>
+            <p>答案不是生日，是我们的起点。</p>
+          </div>
+          <div class="clue-card">
+            <span>03</span>
+            <p>月份两位，日期两位。</p>
+          </div>
+        </div>
+
+        <form class="unlock-form" id="unlockForm">
+          <label for="unlockCode">输入四位密码</label>
+          <div class="code-row">
+            <input
+              id="unlockCode"
+              name="unlockCode"
+              inputmode="numeric"
+              maxlength="4"
+              pattern="[0-9]{4}"
+              autocomplete="off"
+              placeholder="____"
+              aria-describedby="unlockHint"
+            />
+            <button type="submit">解密</button>
+          </div>
+          <p id="unlockHint" class="unlock-hint">提示：我们在一起的日期。</p>
+        </form>
+      </section>
+    </main>
+
+    <div class="unlock-overlay" id="unlockOverlay" aria-hidden="true">
+      <div>
+        <p>解密成功</p>
+        <h2>欢迎进入我们的纪念馆</h2>
+      </div>
+    </div>
+
+    <script src="gate.js"></script>
+  </body>
+</html>
