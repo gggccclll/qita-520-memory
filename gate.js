@@ -74,3 +74,4 @@ function draw() {
 resizeCanvas();
 draw();
 window.addEventListener("resize", resizeCanvas);
+
