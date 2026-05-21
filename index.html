@@ -32,6 +32,20 @@
         </div>
       </section>
 
+      <section class="secret-note" aria-label="隐藏小纸条">
+        <button class="note-button" id="noteButton" type="button">
+          <span>点开一封藏起来的小纸条</span>
+        </button>
+        <div class="note-card" id="noteCard" aria-hidden="true">
+          <p>球球：</p>
+          <h2>答案其实一直都很简单。</h2>
+          <p>
+            不是 1214，也不是第几天，是我每一次认真看向你的时候，都还是会觉得：
+            怎么会这么喜欢你。
+          </p>
+        </div>
+      </section>
+
       <section class="section-band" id="photos">
         <div class="section-heading">
           <p class="eyebrow">Memory Reel</p>
@@ -44,7 +58,9 @@
           </button>
 
           <article class="photo-stage" id="photoStage">
-            <img id="currentPhoto" alt="我们的照片" />
+            <div class="photo-frame">
+              <img id="currentPhoto" alt="我们的照片" />
+            </div>
             <div class="photo-caption">
               <p id="photoDate"></p>
               <h3 id="photoTitle"></h3>
