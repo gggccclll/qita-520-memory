@@ -365,6 +365,7 @@ h3 {
   filter: blur(30px);
   opacity: 0.62;
   transform: scale(1.08);
+  will-change: transform;
 }
 
 .photo-stage img {
@@ -375,14 +376,15 @@ h3 {
   object-fit: contain;
   opacity: 0.98;
   transform: scale(1);
+  will-change: opacity, transform;
   transition:
-    opacity 420ms ease,
-    transform 680ms ease;
+    opacity 260ms ease,
+    transform 360ms ease;
 }
 
 .photo-stage.is-switching img {
-  opacity: 0;
-  transform: scale(0.985);
+  opacity: 0.18;
+  transform: scale(0.992);
 }
 
 .photo-caption {
@@ -684,6 +686,17 @@ h3 {
 
   .photo-frame {
     aspect-ratio: 4 / 5;
+  }
+
+  .photo-frame::before {
+    filter: blur(18px);
+    opacity: 0.48;
+  }
+
+  .photo-stage img {
+    transition:
+      opacity 220ms ease,
+      transform 280ms ease;
   }
 
   .photo-caption {
