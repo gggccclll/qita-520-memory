@@ -15,6 +15,8 @@ const photoDate = document.getElementById("photoDate");
 const photoTitle = document.getElementById("photoTitle");
 const photoText = document.getElementById("photoText");
 const dots = document.getElementById("photoDots");
+const noteButton = document.getElementById("noteButton");
+const noteCard = document.getElementById("noteCard");
 
 function renderDots() {
   dots.innerHTML = "";
@@ -59,6 +61,11 @@ document.getElementById("nextPhoto").addEventListener("click", () => showPhoto(a
 
 showPhoto(0);
 startAutoPlay();
+
+noteButton.addEventListener("click", () => {
+  const isOpen = noteCard.classList.toggle("is-open");
+  noteCard.setAttribute("aria-hidden", String(!isOpen));
+});
 
 const canvas = document.getElementById("constellation");
 const ctx = canvas.getContext("2d");
