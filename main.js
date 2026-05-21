@@ -17,6 +17,8 @@ const photoText = document.getElementById("photoText");
 const dots = document.getElementById("photoDots");
 const noteButton = document.getElementById("noteButton");
 const noteCard = document.getElementById("noteCard");
+const imageCache = new Map();
+let switchToken = 0;
 
 function renderDots() {
   dots.innerHTML = "";
@@ -30,23 +32,52 @@ function renderDots() {
   });
 }
 
-function showPhoto(index, resetTimer = false) {
+function updateDots() {
+  dots.querySelectorAll("button").forEach((dot, index) => {
+    dot.setAttribute("aria-current", index === activeIndex ? "true" : "false");
+  });
+}
+
+function preloadPhoto(index) {
+  if (!photos.length) return Promise.resolve();
+
+  const photo = photos[(index + photos.length) % photos.length];
+  if (imageCache.has(photo.src)) return imageCache.get(photo.src);
+
+  const loader = new Image();
+  loader.decoding = "async";
+  loader.src = photo.src;
+
+  const ready = (loader.decode ? loader.decode() : new Promise((resolve) => {
+    loader.onload = resolve;
+    loader.onerror = resolve;
+  })).catch(() => {}).then(() => photo);
+
+  imageCache.set(photo.src, ready);
+  return ready;
+}
+
+async function showPhoto(index, resetTimer = false) {
   if (!photos.length) return;
 
   activeIndex = (index + photos.length) % photos.length;
+  const token = ++switchToken;
   const photo = photos[activeIndex];
 
   stage.classList.add("is-switching");
-  window.setTimeout(() => {
-    image.src = photo.src;
-    image.alt = photo.alt || photo.title;
-    stage.style.setProperty("--photo-bg", `url("${photo.src}")`);
-    photoDate.textContent = photo.date;
-    photoTitle.textContent = photo.title;
-    photoText.textContent = photo.text;
-    renderDots();
-    stage.classList.remove("is-switching");
-  }, 180);
+  await preloadPhoto(activeIndex);
+  if (token !== switchToken) return;
+
+  image.src = photo.src;
+  image.alt = photo.alt || photo.title;
+  stage.style.setProperty("--photo-bg", `url("${photo.src}")`);
+  photoDate.textContent = photo.date;
+  photoTitle.textContent = photo.title;
+  photoText.textContent = photo.text;
+  updateDots();
+  stage.classList.remove("is-switching");
+  preloadPhoto(activeIndex + 1);
+  preloadPhoto(activeIndex - 1);
 
   if (resetTimer) startAutoPlay();
 }
@@ -59,6 +90,7 @@ function startAutoPlay() {
 document.getElementById("prevPhoto").addEventListener("click", () => showPhoto(activeIndex - 1, true));
 document.getElementById("nextPhoto").addEventListener("click", () => showPhoto(activeIndex + 1, true));
 
+renderDots();
 showPhoto(0);
 startAutoPlay();
 
